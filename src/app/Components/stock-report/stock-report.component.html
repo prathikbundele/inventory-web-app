@@ -1,0 +1,34 @@
+<app-toolbar></app-toolbar>
+<app-dashboard *ngIf="getLoginStatus()"></app-dashboard>
+
+<div>
+    <div class="container">
+            <h2 style="text-align: center">Stock Report</h2>
+            <div class="tableblock" *ngIf="stockReportData">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Category Id</th>
+                            <th>Product Id</th>
+                            <th>Product Name</th>
+                            <th>Purchase Price</th>
+                            <th>Purchase date</th>
+                            <th>Quantity</th>
+                            <th>Selling Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of stockReportData.products">
+                            <td>{{x.categoryId}}</td>
+                            <td>{{x.productId}}</td>
+                            <td>{{x.productName}}</td>
+                            <td>{{x.purchasePrice}}</td>
+                            <td>{{x.purchaseDate}}</td>
+                            <td>{{x.quantity}}</td>
+                            <td>{{x.sellingPrice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>

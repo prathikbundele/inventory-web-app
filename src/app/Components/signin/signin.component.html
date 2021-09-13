@@ -1,0 +1,18 @@
+<div>
+    <div class="row">
+        <div class="col-md-3 leftcol">
+            
+        </div>
+        <div class="col-md-6 middle">
+            <div *ngIf="view=='login'">
+                <app-login (newItemEvent)="changeView($event)"></app-login>
+            </div>
+            <div *ngIf="view=='register'">
+                <app-signup (newItemEvent)="changeView($event)"></app-signup>
+            </div>
+        </div>
+        <div class="col-md-3 rightcol">
+            
+        </div>
+    </div>
+</div>

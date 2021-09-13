@@ -1,0 +1,67 @@
+<app-toolbar></app-toolbar>
+<app-dashboard *ngIf="getLoginStatus()"></app-dashboard>
+
+<div>
+    <div class="container">
+            <h2>
+                    Sales Report
+                </h2>
+                <div>
+                    <p>
+                        Start Date : <input type="date" [(ngModel)]="inputStartDate" />
+                    </p>
+                    <p>
+                        End Date : <input type="date" [(ngModel)]="inputEndDate" />
+                    </p>
+                    <p>
+                        <button (click)="getSalesReport()">Get Report</button>
+                    </p>
+                </div>
+                <div class="tableblock" *ngIf="salesReportData">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Order Id</td>
+                                <td>Mobile</td>
+                                <td>orderDate</td>
+                                <td>Total Amount</td>
+                                <td>Sold By</td>
+                                <td>Total Profit</td>
+                                <td>Discount Amount</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let x of salesReportData.orders">
+                                <td>
+                                    {{x.orderId}}
+                                </td>
+                                <td>
+                                    {{x.mobile}}
+                                </td>
+                                <td>
+                                    {{x.orderDate}}
+                                </td>
+                                <td>
+                                    {{x.totalAmount}}
+                                </td>
+                                <td>
+                                    {{x.soldBy}}
+                                </td>
+                                <td>
+                                    {{x.totalProfit}}
+                                </td>
+                                <td>
+                                    {{x.discountAmount}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <p>Total Sales Amount : {{salesReportData.totalSaleAmount}}</p>
+                                    <p>Total Profit Amount : {{salesReportData.totalProfitAmount}}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                
+    </div>
+</div>

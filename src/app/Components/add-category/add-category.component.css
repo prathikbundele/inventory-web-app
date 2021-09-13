@@ -1,0 +1,10 @@
+.container{
+    width : 50%;
+    padding : 10%;
+}
+input{
+    width: 200px;
+}
+.btn{
+    text-align: center;
+}

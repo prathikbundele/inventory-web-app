@@ -1,0 +1,101 @@
+<app-toolbar></app-toolbar>
+<app-dashboard *ngIf="getLoginStatus()"></app-dashboard>
+
+<div>
+    <div class="container">
+        <h3>Update Product</h3>
+        <div class="row">
+            <div class="col">
+                <p>Category :</p>
+            </div>
+            <div class='col'>
+                <p>
+                    <select [(ngModel)]="selectedCategoryId" (change)="getAlProducts()">
+                        <option value="" selected hidden>
+                            --select category--
+                        </option>
+                        <option *ngFor="let x of categoriesList"value="{{x.categoryId}}">
+                            {{x.categoryName}}
+                        </option>
+                    </select>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Product :</p>
+            </div>
+            <div class="col">
+                <p>
+                    <select [(ngModel)]="selectedProductId" (ngModelChange)="changeProduct(selectedProductId , $event)">
+                        <option value=""selected hidden>
+                            --select product--
+                        </option>
+                        <option *ngFor="let x of productsList"[ngValue]="x">
+                            {{x.productName}}
+                        </option>
+                    </select>
+                </p>
+            </div>
+        </div>
+        <div class="tableblock">
+            <table class="table">
+                <tbody>
+                     <tr>
+                        <td>
+                            Category id
+                        </td>
+                        <td>
+                            {{selectedProduct.categoryId}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            product id
+                        </td>
+                        <td>
+                            {{selectedProduct.productId}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            product Name
+                        </td>
+                        <td>
+                            {{selectedProduct.productName}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Quantity
+                        </td>
+                        <td>
+                            <input type="number" [(ngModel)]="inputQuantity" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Purchase Price
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="inputPurchasePrice" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Selling Price
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="inputSellingPrice" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col btn">
+                <button (click)="updateProduct()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

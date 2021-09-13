@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'inventory-web-app';
+
+  getLoginStatus(){
+    if(localStorage.getItem('userLoggedIn') == 'true'){
+      return true
+    }
+    return false;
+  }
 }

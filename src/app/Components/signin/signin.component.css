@@ -1,0 +1,11 @@
+.leftcol{
+    text-align: center;
+}
+.rightcol {
+    text-align: center;
+}
+.middle {
+    text-align: center;
+    vertical-align: middle;
+    padding : 10%;
+}

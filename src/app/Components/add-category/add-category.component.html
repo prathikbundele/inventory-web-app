@@ -1,0 +1,25 @@
+<app-toolbar></app-toolbar>
+<app-dashboard *ngIf="getLoginStatus()"></app-dashboard>
+
+<div>
+    <div class="container">
+    
+            <h3>Add Category</h3>
+        
+        <div class="row">
+            <div class="col">
+                <p>Category :</p>
+            </div>
+            <div class='col'>
+                <p>
+                    <input type="text" [(ngModel)]="inputCategory" />
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col btn">
+                <button class="" (click)="submitCategory()" [disabled] = "inputCategory == ''">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

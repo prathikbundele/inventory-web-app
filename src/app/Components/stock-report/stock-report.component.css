@@ -1,0 +1,13 @@
+.container{
+    width : auto;
+    padding : 10%;
+}
+select{
+    width: 200px;
+}
+input{
+    width: 200px;
+}
+.btn{
+    text-align: center;
+}

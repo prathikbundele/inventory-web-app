@@ -1,0 +1,33 @@
+<div class="navbar">
+    <!--<a href="#">Home</a>-->
+    <div class="dropdown">
+    <button class="dropbtn" [matMenuTriggerFor]="menu">User Management
+      <i class="fa fa-caret-down"></i>
+    </button>
+    </div> 
+    <mat-menu #menu>
+      <button mat-menu-item routerLink="/manage-role">Assign Role</button>
+    </mat-menu>
+    <div class="dropdown">
+        <button class="dropbtn" [matMenuTriggerFor]="menu2">Product Management
+          <i class="fa fa-caret-down"></i>
+        </button>
+        </div> 
+        <mat-menu #menu2>
+          <button mat-menu-item routerLink="/add-category">Add Category</button>
+          <button mat-menu-item routerLink="/add-product">Add Product</button>
+          <button mat-menu-item routerLink="/update-product">Update Product</button>
+        </mat-menu>
+        <div class="dropdown">
+            <button class="dropbtn" [matMenuTriggerFor]="menu3">Order Management
+              <i class="fa fa-caret-down"></i>
+            </button>
+            </div> 
+            <mat-menu #menu3>
+              <button mat-menu-item routerLink="/place-order">Place Order</button>
+              <button mat-menu-item routerLink="/sales-report">Sales Report</button>
+              <button mat-menu-item routerLink="/stock-report">Stock Report</button>
+            </mat-menu>
+  </div>
+
+  

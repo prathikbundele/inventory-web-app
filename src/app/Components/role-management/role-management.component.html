@@ -1,0 +1,58 @@
+<app-toolbar></app-toolbar>
+<app-dashboard *ngIf="getLoginStatus()"></app-dashboard>
+
+<div>
+    <div class="row">
+        <div class="col-md-3 leftcol">
+
+        </div>
+        <div class="col-md-6 middlecol">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Username : </p>
+                    </div>
+                    <div class="col-md-8">
+                        <p>
+                            <select [(ngModel)]="selectedUsername">
+                                <option value="">
+                                    --select--
+                                </option>
+                                <option *ngFor="let x of usersList" value={{x.username}}>
+                                    {{x.username}}
+                                </option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Role : </p>
+                    </div>
+                    <div class="col-md-8">
+                        <p>
+                            <select [(ngModel)]="selectedRole">
+                                <option value="">
+                                    --select--
+                                </option>
+                                <option *ngFor="let x of rolesList" value={{x.roleName}}>
+                                    {{x.roleName}}
+                                </option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>
+                            <button (click)="assignRole()">Approve</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 rightcol">
+
+        </div>
+    </div>
+</div>
