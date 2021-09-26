@@ -12,6 +12,14 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  isAdmin(){
+    console.log(localStorage.getItem('userRole'))
+    if(localStorage.getItem('userRole') == 'admin'){
+      return true
+    }
+    return false
+  }
+
 
   myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");

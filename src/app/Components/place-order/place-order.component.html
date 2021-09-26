@@ -1,92 +1,118 @@
 <app-toolbar></app-toolbar>
 <app-dashboard *ngIf="getLoginStatus()"></app-dashboard>
 
+
 <div>
-        <div class="container">
-            <h3>Place Order</h3>
-            <div class="row">
-                <div class="col">
-                    <p>Category :</p>
+        <div class="row">
+            <!--<div class="col-md-3 leftcol">
+                <div class="row">
+                        <img src="../../../assets//Images//pets/CaneCorso.jpg" />
+                        <img src="../../../assets//Images//pets/CaneCorso.jpg" />
+                        <img src="../../../assets//Images//pets/CaneCorso.jpg" />
                 </div>
-                <div class='col'>
-                    <p>
-                        <select [(ngModel)]="selectedCategoryId" (change)="getAlProducts()">
-                            <option value="" selected hidden>
-                                --select category--
-                            </option>
-                            <option *ngFor="let x of categoriesList"value="{{x.categoryId}}">
-                                {{x.categoryName}}
-                            </option>
-                        </select>
-                    </p>
+            </div>-->
+            <div class="col-md-12 middlecol">
+                    <div class="container">
+                            <h2>Place Order</h2>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>
+                                        <label>Category&nbsp;&nbsp; : </label>&nbsp;&nbsp;
+                                    </p>
+                                </div>
+                                <div class='col-md-6'>
+                                    <p>
+                                        <select [(ngModel)]="selectedCategoryId" (change)="getAlProducts()">
+                                            <option value="" selected hidden>
+                                                --select category--
+                                            </option>
+                                            <option *ngFor="let x of categoriesList"value="{{x.categoryId}}">
+                                                {{x.categoryName}}
+                                            </option>
+                                        </select>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>
+                                        <label>Product&nbsp;&nbsp; : </label>&nbsp;&nbsp;
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <select [(ngModel)]="selectedProductId" (ngModelChange)="changeProduct(selectedProductId , $event)">
+                                            <option value=""selected hidden>
+                                                --select product--
+                                            </option>
+                                            <option *ngFor="let x of productsList"[ngValue]="x">
+                                                {{x.productName}}
+                                            </option>
+                                        </select>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-3">
+                                        <p>
+                                            <label>Quantity&nbsp;&nbsp; : </label>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>
+                                            <input type="number" [(ngModel)]="inputQuantity" />
+                                        </p>
+                                    </div>
+                            </div>
+                            <div class="row" style="text-align: left">
+                                    <div class="col">
+                                        <button (click)="addProductToList()" class="btn">Add</button>
+                                    </div>
+                            </div>
+                            <hr>
+                            <div class="tableblock" *ngIf="lineItems.length > 0">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                         <tr>
+                                             <th>Product Id</th>
+                                             <th>Product Name</th>
+                                             <th>Quantity</th>
+                                             <th>Selling Price</th>
+                                             <th>Total</th>
+                                         </tr>
+                                         <tr *ngFor="let x of lineItems">
+                                             <td>{{x.productId}}</td>
+                                             <td>{{x.productName}}</td>
+                                             <td>{{x.quantity}}</td>
+                                             <td>{{x.sellingPrice}}</td>
+                                             <td>{{x.sellingPrice *x.quantity}}</td>
+                                         </tr>
+                                         <tr>
+                                             <td colspan="5" style="text-align: right">
+                                                 {{getTotalAmount()}}
+                                             </td>
+                                         </tr>
+                                         <tr>
+                                                <td colspan="5" style="text-align: right">
+                                                    Add Discount : <input type="umber" [(ngModel)]="inputDiscount" />
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row" *ngIf="lineItems.length > 0">
+                                <div class="col">
+                                    <button class="btn" (click)="placeOrder()">Place Order</button>
+                                </div>
+                            </div>
+                        </div>      
+            </div>
+            <!--<div class="col-md-3 rightcol">
+                <div class="row">
+                        <img src="../../../assets//Images//pets/CaneCorso.jpg" />
+                        <img src="../../../assets//Images//pets/CaneCorso.jpg" />
+                        <img src="../../../assets//Images//pets/CaneCorso.jpg" />
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p>Product :</p>
-                </div>
-                <div class="col">
-                    <p>
-                        <select [(ngModel)]="selectedProductId" (ngModelChange)="changeProduct(selectedProductId , $event)">
-                            <option value=""selected hidden>
-                                --select product--
-                            </option>
-                            <option *ngFor="let x of productsList"[ngValue]="x">
-                                {{x.productName}}
-                            </option>
-                        </select>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                    <div class="col">
-                        <p>Quantity :</p>
-                    </div>
-                    <div class="col">
-                        <p>
-                            <input type="number" [(ngModel)]="inputQuantity" />
-                        </p>
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col btn">
-                        <button (click)="addProductToList()">add</button>
-                    </div>
-            </div>
-            <div class="tableblock" *ngIf="lineItems.length > 0">
-                <table class="table">
-                    <tbody>
-                         <tr>
-                             <th>Product Id</th>
-                             <th>Product Name</th>
-                             <th>Quantity</th>
-                             <th>Selling Price</th>
-                             <th>Total</th>
-                         </tr>
-                         <tr *ngFor="let x of lineItems">
-                             <td>{{x.productId}}</td>
-                             <td>{{x.productName}}</td>
-                             <td>{{x.quantity}}</td>
-                             <td>{{x.sellingPrice}}</td>
-                             <td>{{x.sellingPrice *x.quantity}}</td>
-                         </tr>
-                         <tr>
-                             <td colspan="5" style="text-align: right">
-                                 {{getTotalAmount()}}
-                             </td>
-                         </tr>
-                         <tr>
-                                <td colspan="5" style="text-align: right">
-                                    Add Discount : <input type="umber" [(ngModel)]="inputDiscount" />
-                                </td>
-                            </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row" *ngIf="lineItems.length > 0">
-                <div class="col btn">
-                    <button (click)="placeOrder()">Place Order</button>
-                </div>
-            </div>
+            </div>-->
         </div>
     </div>

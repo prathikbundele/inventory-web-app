@@ -1,0 +1,29 @@
+
+.middlecol{
+    padding : 2%;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+select{
+    min-width: 200px;
+    height: 36px;
+    font-size: 20px;
+}
+.btn{
+    width: 100px;;
+    color : white;
+    background-color: navy;
+}
+label{
+    height : 36px;
+    font-size: 20px;
+}
+input{
+    height : 36px;
+    font-size: 20px;
+    width: 200px;
+}
+.main{
+    margin-top: 20px;
+}

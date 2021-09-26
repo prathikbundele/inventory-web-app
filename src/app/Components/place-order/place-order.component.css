@@ -1,13 +1,33 @@
-.container{
-    width : 50%;
-    padding : 10%;
+
+.middlecol{
+    padding : 2%;
+    text-align: '';
+    margin-top: 20px;
+    margin-bottom: auto;
 }
+
 select{
-    width: 200px;
-}
-input{
-    width: 200px;
+    min-width: 200px;
+    height: 36px;
+    font-size: 20px;
 }
 .btn{
-    text-align: center;
+    min-width: 100px;;
+    color : white;
+    background-color: navy;
+}
+label{
+    height : 40px;
+    font-size: 20px;
+}
+input{
+    height : 36px;
+    font-size: 20px;
+    width : 200px;
+}
+
+.tableblock{
+    margin : 20px 0px;
+    max-height: 300px;
+    overflow: auto;
 }

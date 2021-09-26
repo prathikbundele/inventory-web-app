@@ -2,23 +2,39 @@
 <app-dashboard *ngIf="getLoginStatus()"></app-dashboard>
 
 <div>
-    <div class="container">
-    
-            <h3>Add Category</h3>
-        
-        <div class="row">
-            <div class="col">
-                <p>Category :</p>
-            </div>
-            <div class='col'>
-                <p>
-                    <input type="text" [(ngModel)]="inputCategory" />
-                </p>
+    <div class="row">
+        <div class="col-md-3 leftcol">
+            <div class="row">
+                    <img src="../../../assets//Images//pets/doberman.jpg" />
+                    <img src="../../../assets//Images//pets/cavalier king charles spaniel.jpg" />
             </div>
         </div>
-        <div class="row">
-            <div class="col btn">
-                <button class="" (click)="submitCategory()" [disabled] = "inputCategory == ''">Submit</button>
+        <div class="col-md-6 middlecol">
+                <div class="container">
+                        <h3>Add Category</h3>
+                       <div class="row main">
+                           <div class="col">
+                               <p>
+                                   <label>Category : </label>
+                               </p>
+                           </div>
+                           <div class='col'>
+                               <p>
+                                   <input type="text" [(ngModel)]="inputCategory" />
+                               </p>
+                           </div>
+                       </div>
+                       <div class="row">
+                           <div class="col">
+                               <button class="btn" (click)="submitCategory()" [disabled] = "inputCategory == ''">Submit</button>
+                           </div>
+                       </div>
+                   </div>
+        </div>
+        <div class="col-md-3 rightcol">
+            <div class="row">
+                    <img src="../../../assets//Images//pets/border collie.jpg" />
+                    <img src="../../../assets//Images//pets/havanese.jpg" />
             </div>
         </div>
     </div>

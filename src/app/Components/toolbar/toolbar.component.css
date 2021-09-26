@@ -2,14 +2,16 @@
     overflow: hidden;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
+    float : right;
+    text-align: right;
   }
   
   .navbar a {
     float: right;
-    font-size: 16px;
+    font-size: 14px;
     color: white;
     text-align: right;
-    padding: 14px 16px;
+    padding: 10px 12px;
     text-decoration: none;
   }
   
@@ -21,16 +23,18 @@
   
   .dropdown .dropbtn {
     cursor: pointer;
-    font-size: 16px;  
+    font-size: 14px;  
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
+    padding: 10px 12px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
     float : right;
-    text-align: right
+    text-align: center;
+    font-weight: 700;
+
   }
   
   .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {

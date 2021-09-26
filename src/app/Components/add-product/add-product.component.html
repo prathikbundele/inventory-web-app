@@ -2,41 +2,61 @@
 <app-dashboard *ngIf="getLoginStatus()"></app-dashboard>
 
 <div>
-    <div class="container">
+        <div class="row">
+            <div class="col-md-3 leftcol">
+                <div class="row">
+                        <img src="../../../assets//Images//pets/labrador retriver.jpg" />
+                        <img src="../../../assets//Images//pets/persian cat.jpg" />
+                </div>
+            </div>
+            <div class="col-md-6 middlecol">
+                    <div class="container">
 
-            <h3>Add Product</h3>
-        
-        <div class="row">
-            <div class="col">
-                <p>Category :</p>
+                            <h3>Add Product</h3>
+                        
+                        <div class="row main">
+                            <div class="col">
+                                <p>
+                                    <label>Category : </label>
+                                </p>
+                            </div>
+                            <div class='col'>
+                                <p>
+                                    <select [(ngModel)]="selectedCategoryId">
+                                        <option value="" selected hidden>
+                                            --select--
+                                        </option>
+                                        <option *ngFor="let x of categoriesList"value="{{x.categoryId}}">
+                                            {{x.categoryName}}
+                                        </option>
+                                    </select>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    <label>Product : </label>
+                                </p>
+                            </div>
+                            <div class='col'>
+                                <p>
+                                    <input type="text" [(ngModel)] = "inputProductName" />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn" (click)="addProduct()">Submit</button>
+                            </div>
+                        </div>
+                    </div>      
             </div>
-            <div class='col'>
-                <p>
-                    <select [(ngModel)]="selectedCategoryId">
-                        <option value="" selected hidden>
-                            --select--
-                        </option>
-                        <option *ngFor="let x of categoriesList"value="{{x.categoryId}}">
-                            {{x.categoryName}}
-                        </option>
-                    </select>
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p>Product :</p>
-            </div>
-            <div class='col'>
-                <p>
-                    <input type="text" [(ngModel)] = "inputProductName" />
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col btn">
-                <button (click)="addProduct()">Submit</button>
+            <div class="col-md-3 rightcol">
+                <div class="row">
+                        <img src="../../../assets//Images//pets/siamese cat.jpg" />
+                        <img src="../../../assets//Images//pets/sphynx cat.jpg" />
+                </div>
             </div>
         </div>
     </div>
-</div>

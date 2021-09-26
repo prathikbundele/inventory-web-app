@@ -1,12 +1,27 @@
-.leftcol{
-   
-}
-.rightcol{
-    
-}
+
 .middlecol{
-    padding : 10%;
+    padding : 2%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: auto;
 }
 select{
-    min-width: 100px;
+    min-width: 200px;
+    height: 36px;
+    font-size: 20px;
+}
+.btn{
+    width: 100px;;
+    color : white;
+    background-color: navy;
+}
+label{
+    height : 36px;
+    font-size: 20px;
+}
+.row .main{
+    margin-top: 40px;
+}
+img{
+    height : 240px;
 }

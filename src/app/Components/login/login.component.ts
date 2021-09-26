@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     this.newItemEvent.emit('register')
   }
   userLogin(){
+
     const headers = new HttpHeaders()
           .set('Authorization', 'my-auth-token')
           .set('Content-Type', 'application/json');
@@ -35,12 +36,15 @@ export class LoginComponent implements OnInit {
         console.log("Login successful");
         this.userData = res;
         localStorage.setItem('userLoggedIn', "true")
-        localStorage.setItem('userRole', this.userData.roleName)
+        localStorage.setItem('userRole', this.userData.body.roleName)
+        console.log(this.userData)
+        console.log(this.userData.body.roleName)
+        console.log(localStorage.getItem('userRole'))
         this.router.navigate(['stock-report'])
       }
     },
     error =>{
-      console.log(error.message)
+      console.log(error.error.message)
     }
     )
   }

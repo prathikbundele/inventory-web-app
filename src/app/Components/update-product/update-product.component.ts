@@ -64,7 +64,7 @@ export class UpdateProductComponent implements OnInit {
   }
 
   updateProduct(){
-    var url = 'http://localhost:8080/product/product/update'
+    var url = 'http://localhost:8080/product/product/' +this.selectedProduct.productId +'update'
     var body :any = {}
     body.categoryId = this.selectedCategoryId;
     body.productName = this.selectedProduct.productName;

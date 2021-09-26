@@ -1,25 +1,82 @@
 <div>
-    <div>
+    <div class="body">
+        <h4>Register</h4>
+        <div class="tableblock">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <p>
+                                <label>First Name : </label>
+                            </p>
+                        </td>
+                        <td>
+                            <p><input type="text" [(ngModel)]="inputFirstName" /></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <label>Last Name : </label>
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <input type="text" [(ngModel)]="inputLastName" />
+                            </p>     
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <label>Username : </label>
+                            </p>  
+                        </td>
+                        <td>
+                            <p>
+                                <input type="text" [(ngModel)]="inputUsername" />
+                            </p>      
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <label>Password : </label>
+                            </p>    
+                        </td>
+                        <td>
+                            <p>
+                                <input type="password" [(ngModel)]="inputPassword" />
+                            </p>       
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <label>Email : </label>
+                            </p>  
+                        </td>
+                        <td>
+                            <p>
+                                <input type="password" [(ngModel)]="inputEmail" />
+                            </p>      
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                 <label>Contact Number : </label>
+                            </p>   
+                        </td>
+                        <td>
+                            <p>
+                                <input type="number" [(ngModel)]="inputMobile" />
+                            </p>      
+                        </td>
+                    </tr>
+                </table>
+            </div>
         <p>
-            First Name : <input type="text" [(ngModel)]="inputFirstName" />
-        </p>
-        <p>
-            Last name : <input type="text" [(ngModel)]="inputLastName" />
-        </p>
-        <p>
-            Username : <input type="text" [(ngModel)]="inputUsername" />
-        </p>
-        <p>
-            Password : <input type="password" [(ngModel)]="inputPassword" />
-        </p>
-        <p>
-            Email : <input type="password" [(ngModel)]="inputEmail" />
-        </p>
-        <p>
-            Contact Number : <input type="number" [(ngModel)]="inputMobile" />
-        </p>
-        <p>
-            <button (click)="registerUser()">Register</button>
+            <button class="btn" (click)="registerUser()">Register</button>
         </p>
     </div>
 </div>
