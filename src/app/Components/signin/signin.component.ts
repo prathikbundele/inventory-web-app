@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -10,11 +11,18 @@ export class SigninComponent implements OnInit {
 
   view : string
 
-  constructor() { 
+  constructor(private router : Router) { 
     this.view = 'login'
   }
 
   ngOnInit() {
+    this.getLoginStatus();
+  }
+
+  getLoginStatus(){
+    if(localStorage.getItem('userLoggedIn') == 'true'){
+      this.router.navigate(['stock-report']);
+    }
   }
 
   changeView(item : string){
